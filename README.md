@@ -1,2 +1,2 @@
 # GreenR_bot_code
-code.htm
+code.html
