@@ -27,7 +27,7 @@ robot.settings(200, 520, 200, 100)
 rightcolor = ColorSensor(Port.S1)
 leftcolor = ColorSensor(Port.S2)
 gyroSensor = GyroSensor(Port.S3)
-accangle = 0
+accangle = 0 # accumulated angle, angle you're supposed to be at. 
 
 black = 3
 white = 41
