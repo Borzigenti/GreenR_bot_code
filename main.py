@@ -144,13 +144,13 @@ def turntoangle(Target_angle, gyroturn=False, sped=150, turntimes=1):
             if Target_angle < gyroSensor.angle():
                 while gyroSensor.angle() > Target_angle + 1:
                     turnspeed = sped*(1 - (gyroSensor.angle() / Target_angle * 0.7)) if sped*(1 - (gyroSensor.angle() / Target_angle * 0.7))>50 else 30
-                    #if a thingy is > 50, then use the thingy. if not, then use 30.
+                    #if the proportional speed is > 50, then use the proportional speed. if not, then use 30.
                     robot.drive(0, turnspeed)
 
             else:
                 while gyroSensor.angle() < Target_angle - 1:
                     turnspeed = -sped*(1 - (gyroSensor.angle() / Target_angle * 0.7)) if -sped*(1 - (gyroSensor.angle() / Target_angle * 0.7))<-50 else -30
-                    #if a thingy is < 50, then use the thingy. if not, then use -30.
+                    #if the proportional speed is < 50, then use the proportional speed. if not, then use -30.
                     robot.drive(0, turnspeed)
         print('target angle after', Target_angle, 'accangle', accangle, 'gyro angle', gyroSensor.angle())
         robot.stop()
