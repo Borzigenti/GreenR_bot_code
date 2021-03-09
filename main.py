@@ -89,11 +89,11 @@ def line_follow(colour_sensor, speed, P_multiplier, D_multiplier, I_multiplier, 
     robot.reset()
     last_error = 0
     e_count = 0
+    p = 0
+    d = 0
+    i = 0
+    error = 0
     while robot.distance() < distance:
-        p = 0
-        d = 0
-        i = 0
-        error = 0
         error = threshold - colour_sensor.reflection()
         p = error * P_multiplier
         d = (error - last_error) / sample_time * D_multiplier
