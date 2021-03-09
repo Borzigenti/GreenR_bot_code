@@ -144,6 +144,7 @@ def turntoangle(Target_angle, gyroturn=False, sped=150, turntimes=1):
                 while gyroSensor.angle() > Target_angle + 1:
                     speed = sped*(1 - (gyroSensor.angle() / Target_angle * 0.7)) if sped*(1 - (gyroSensor.angle() / Target_angle * 0.7))>50 else 30
                     robot.drive(0, speed)
++
 
             else:
                 while gyroSensor.angle() < Target_angle - 1:
