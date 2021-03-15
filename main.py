@@ -276,17 +276,17 @@ while True:
         accangle = 0
         gyroSensor.reset_angle(0)
         straight(270, 200)                                                                                                                         
-        line_follow(rightcolor, 175, 1.6, 0.04, 0.1, 0.01, 1200)
+        line_follow(rightcolor, 175, 1.6, 0.04, 0.1, 0.01, 1200)# arives at treadmill
         #turntoangle(0.01)
-        robot.drive(80, -2)
-        mediummotor2.run_time(300, 1000)
-        wait(1500)
+        robot.drive(95, -1.5) #80, -2
+        mediummotor2.run_time(300, 1000, wait=True)#rolls up platform
+        wait(900) #1500
         robot.stop()
         leftmotor.hold()
         rightmotor.hold()
-        mediummotor2.run_time(1000, 3500)
+        mediummotor2.run_time(1000, 3500)#runs treadmill
         accangle = 1
-        oldstraight(2000, -500)
+        oldstraight(2000, -500)# goes back
         #health units, minifigure on tire, weight machine, drop bricks
     elif Button.LEFT in ev3.buttons.pressed():
         
@@ -299,7 +299,7 @@ while True:
         #health units
         turntoangle(19)
         #straight(50, 100)
-        mediummotor.run_angle(500, 6.5 * 90)
+        mediummotor.run_angle(500, 6.5 * 90)#health unit
         straight(50, -100)
         mediummotor.run_angle(500, 5.5 * 90)
         straight(50, -100)
