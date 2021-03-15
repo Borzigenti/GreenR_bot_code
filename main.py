@@ -55,7 +55,7 @@ def linesquare(speed=150):
     if rorl == "r":
         while leftcolor.reflection() > 4:
             pass
-        rightmotor.hold()
+        rightmotor.hold()jw
         leftmotor.hold()
         for i in range(2):
             if i % 2 == 0:
