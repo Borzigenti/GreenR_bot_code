@@ -352,7 +352,7 @@ while True:
         while robot.distance() < 910:
             robot.drive(250, 5)
         robot.stop()
-        straight(1170-800, 500)
+        straight(1170-800, 500) #cross brigde
         straight(50, -200)
         turntoangle(90)
         straight(150, -250)
@@ -360,7 +360,7 @@ while True:
         turntoangle(35, True)
         straight(500, 250)
         straight(30, -200)
-        while True:
+        while True: #dance
             straight(50, -200)
             straight(50, 200)
 
