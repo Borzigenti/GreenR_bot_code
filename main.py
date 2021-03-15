@@ -89,11 +89,11 @@ def line_follow(colour_sensor, speed, P_multiplier, D_multiplier, I_multiplier, 
     robot.reset()
     last_error = 0
     e_count = 0
+    p = 0
+    d = 0
+    i = 0
+    error = 0
     while robot.distance() < distance:
-        p = 0
-        d = 0
-        i = 0
-        error = 0
         error = threshold - colour_sensor.reflection()
         p = error * P_multiplier
         d = (error - last_error) / sample_time * D_multiplier
@@ -144,13 +144,13 @@ def turntoangle(Target_angle, gyroturn=False, sped=150, turntimes=1):
             if Target_angle < gyroSensor.angle():
                 while gyroSensor.angle() > Target_angle + 1:
                     turnspeed = sped*(1 - (gyroSensor.angle() / Target_angle * 0.7)) if sped*(1 - (gyroSensor.angle() / Target_angle * 0.7))>50 else 30
-                    #if a thingy is > 50, then use the thingy. if not, then use 30.
+                    #if the proportional speed is > 50, then use the proportional speed. if not, then use 30.
                     robot.drive(0, turnspeed)
 
             else:
                 while gyroSensor.angle() < Target_angle - 1:
                     turnspeed = -sped*(1 - (gyroSensor.angle() / Target_angle * 0.7)) if -sped*(1 - (gyroSensor.angle() / Target_angle * 0.7))<-50 else -30
-                    #if a thingy is < 50, then use the thingy. if not, then use -30.
+                    #if the proportional speed is < 50, then use the proportional speed. if not, then use -30.
                     robot.drive(0, turnspeed)
         print('target angle after', Target_angle, 'accangle', accangle, 'gyro angle', gyroSensor.angle())
         robot.stop()
